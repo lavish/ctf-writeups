@@ -14,15 +14,8 @@ def bypass_auth(s):
 
 
 def filter_news(s):
-    params = [
-        'filter[$cond][if][$eq][][$substr][]=$title',
-        'filter[$cond][if][$eq][0][$substr][][$year][$dateFromString][dateString]=0000-02-08T12:10:40.787Z',
-        'filter[$cond][if][$eq][0][$substr][][$year][$dateFromString][dateString]=0007-02-08T12:10:40.787Z',
-        'filter[$cond][if][$eq][]=cybrics',
-        'filter[$cond][then]=$title',
-        'filter[$cond][else]=1'
-    ]
-    r  = s.get('{}?{}'.format(URL, '&'.join(params)))
+    query_string = "filter[$cond][if][$eq][0][$substr][0]=$title&filter[$cond][if][$eq][0][$substr][1][$year][$dateFromString][dateString]=0000-02-08T12:10:40.787Z&filter[$cond][if][$eq][0][$substr][2][$year][$dateFromString][dateString]=0007-02-08T12:10:40.787Z&filter[$cond][if][$eq][1]=cybrics&filter[$cond][then]=$title&filter[$cond][else]="
+    r  = s.get('{}?{}'.format(URL, query_string))
     print(r.text)
 
 

