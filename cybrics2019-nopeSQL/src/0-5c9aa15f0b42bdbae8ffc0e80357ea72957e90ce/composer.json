@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mongodb/mongodb": "^1.4",
+        "fzaninotto/faker": "^1.8"
+    }
+}
