@@ -241,7 +241,7 @@ Also, creating a username without a password results in a "access denied" error 
 4. Given that we are forcibly setting `admin=1` in the result set of the query performed by the login page, we should be able to simply follow the redirection to `/internal/admin` to verify that we effectively gained admin access by checking whether the `Member Search` text is found in the page.
 
 
-### Sorry Joe, we can do better than Joe's friend
+### Sorry Joe, we can do better than Bob's friend
 
 Now that we managed to gain admin privileges and we entered a branch in the code that looked impossible to reach at the beginning of this quest, it is time to look for the flag. Assuming that the flag is in the database (this has been subsequently confirmed by a hint released 24h after the competition start), we must find a way to inject arbitrary SQL statements, dump the list of tables, columns and - eventually - read the flag.
 
