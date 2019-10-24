@@ -21,7 +21,7 @@ A quick analysis of the HTML code of the page reveals a more interesting path wh
 <img src="/internal/img/logo_white.png" alt="Avatar" width="300" height="300">
 ```
 
-This portal served at [http://31.22.123.49:1908/internal/login]() ![](screenshots/portal.png) offers a registration/login form and an admin page that tells us that we are not admin after logging in:
+This portal served at [http://31.22.123.49:1908/internal/login]() ![](screenshots/internal.png) offers a registration/login form and an admin page that tells us that we are not admin after logging in:
 
 ```HTML
 <div class="custom_tooltip">You're not admin.<span class="custom_tooltiptext">XXX.XXX.XXX.XXX isn't admins IP.</span></div>
