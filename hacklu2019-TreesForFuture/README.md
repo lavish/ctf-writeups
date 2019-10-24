@@ -268,7 +268,7 @@ COUNT = 1337
 def remote_add(payload):
     user = '{}_{}'.format(USERNAME, COUNT)
     php_code = '''
-        $db_host="google.minimalblue.com";
+        $db_host="tree.minimalblue.com";
         $db_name="tree";
         $db_user="ctf-user";
         $db_pass="ctf-pwd";
