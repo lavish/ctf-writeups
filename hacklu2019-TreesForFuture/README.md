@@ -6,14 +6,12 @@ TreesForFuture - hack.lu CTF 2019
 
 Preface
 -------
-Having scored the first blood and with only 2 teams solving the challenge, I thought it was almost mandatory to publish a write-up. I have to say that I really like it, even if I found it frustrating at a time. By looking back at all the steps needed to complete it, I can easily see that all the pieces fits perfectly in place and - probably - the only part that required some guessing, i.e., the location of the flag, has been addressed by one of the hints released 24h after the start of the competition. Many thanks to [@\_Imm0](https://twitter.com/_Imm0) and [fluxfingers](https://fluxfingers.net/) for preparing it. I had a long journey hacking through it but highly rewarding!
+Having scored the first blood and with only 2 teams solving the challenge, I thought it was almost mandatory to publish a write-up. I have to say that I really liked it, even if I found it frustrating at a time. By looking back at all the steps needed to complete it, I can easily see that all the pieces fits perfectly in place and - probably - the only part that required some guessing, i.e., the location of the flag, has been addressed by one of the hints released 24h after the start of the competition. Many thanks to [@\_Imm0](https://twitter.com/_Imm0) and [fluxfingers](https://fluxfingers.net/) for preparing it. I had a long journey hacking through it but highly rewarding!
 
 
 Overview
 --------
 The challenge provides a simple single-page website that filled with Lorem ipsum quotes and a picture of a tree. ![](screenshots/site.png)
-
-
 
 A quick analysis of the HTML code of the page reveals a more interesting path where the tree picture is hosted
 
@@ -326,3 +324,4 @@ if __name__ == '__main__':
     main()
 ```
 
+Flag: `flag{ffc1f54c7a4e7f7e9065d4b16f1ac742}`
