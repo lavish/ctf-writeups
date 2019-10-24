@@ -3,6 +3,12 @@ TreesForFuture - hack.lu CTF 2019
 
 > We are TreesForFuture. We actively work towards getting more trees onto this planet. Recently we hired a contractor to create a website for us. While we still need to fill it with content in some places, you can already look at it [http://31.22.123.49:1908]().
 
+* Category: Web
+* Points at the end of the competition: 500
+* Solved by 2/972 teams
+
+Write-up by [Marco Squarcina](https://minimalblue.com/) for [WE_0WN_Y0U](https://w0y.at/).
+
 
 Preface
 -------
